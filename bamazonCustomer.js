@@ -44,29 +44,30 @@ function listObjects() {
                 for (var i = 0; i < results.length; i++) {
                     if (results[i].product_name === answer.selectProduct) {
                         selectedItem = results[i];
+                       
                     }
                 }
 
                 if (selectedItem.stock_quantity >= parseInt(answer.quantity)) {
+                    console.log("You will receive your items!");
+                    console.log ("Your total will be $" + (answer.quantity * selectedItem.price) + ". Keep shopping!");
+
+                    var newTotal = selectedItem.stock_quantity - answer.quantity;
                     connection.query(
                         "UPDATE products SET ? WHERE ?",
                         [
                             {
-                                product_name: selectedItem
+                                stock_quantity: newTotal
                             },
                             {
-                                stock_quantity: answer.quantity
+                                product_name: selectedItem  
                             }
                         ],
-                        function (error) {
-                            if (error) throw err;
-                            console.log("You will receive your items!");
-                            listObjects();
-                        }
+                        listObjects()
                     );
                 }
                 else {
-                    console.log("We don't have anymore in stock.");
+                    console.log("We are unable to supply that amount of product.");
                     listObjects();
                 }
             })
