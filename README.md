@@ -23,8 +23,5 @@
 ### The prompt says that the product is not available in the entered quantity and the user can try again:
 <img width="522" alt="unabletosupply" src="https://user-images.githubusercontent.com/35227935/42982995-d1926d82-8ba9-11e8-9b7b-7f9c58bc6af4.png">
 
-## Work to Do
-I was not able to get the SQL database to update with the new quantity. I'll be coming in for office hours. I think I got close, but wasn't able to get it to fully work.
-
 
 
