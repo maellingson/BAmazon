@@ -44,6 +44,7 @@ function listObjects() {
                 for (var i = 0; i < results.length; i++) {
                     if (results[i].product_name === answer.selectProduct) {
                         selectedItem = results[i];
+                        console.log(selectedItem)
                        
                     }
                 }
@@ -60,7 +61,7 @@ function listObjects() {
                                 stock_quantity: newTotal
                             },
                             {
-                                product_name: selectedItem  
+                                product_name: selectedItem.product_name
                             }
                         ],
                         listObjects()
